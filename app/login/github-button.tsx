@@ -6,6 +6,8 @@ import {
   createClientComponentClient,
 } from "@supabase/auth-helpers-nextjs";
 
+export const runtime = "edge";
+
 export function GithubButton({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient();
 
