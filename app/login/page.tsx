@@ -1,7 +1,17 @@
-import Link from 'next/link'
-import Messages from './messages'
+import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import Link from "next/link";
+import Messages from "./messages";
+import { GithubButton } from "./github-button";
 
-export default function Login() {
+export default async function Login() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
       <Link
@@ -21,10 +31,10 @@ export default function Login() {
           className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
         >
           <polyline points="15 18 9 12 15 6" />
-        </svg>{' '}
+        </svg>{" "}
         Back
       </Link>
-
+      <GithubButton session={session} />
       <form
         className="flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
         action="/auth/sign-in"
@@ -61,5 +71,5 @@ export default function Login() {
         <Messages />
       </form>
     </div>
-  )
+  );
 }
