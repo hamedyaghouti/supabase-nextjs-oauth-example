@@ -5,7 +5,7 @@ import NextJsLogo from "../components/NextJsLogo";
 import DeployButton from "../components/DeployButton";
 import { getUser } from "@/app/lib/get-user";
 
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 const resources = [
   {
