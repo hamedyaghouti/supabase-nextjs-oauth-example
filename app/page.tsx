@@ -6,6 +6,7 @@ import DeployButton from "../components/DeployButton";
 import { getUser } from "@/app/lib/get-user";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 const resources = [
   {
@@ -37,8 +38,6 @@ const examples = [
   { type: "Server Actions", src: "app/_examples/server-action/page.tsx" },
   { type: "Route Handlers", src: "app/_examples/route-handler.ts" },
 ];
-
-export const runtime = "edge";
 
 export default async function Index() {
   const user = await getUser();

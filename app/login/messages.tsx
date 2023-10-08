@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-export const runtime = "edge";
 
 export default function Messages() {
   const searchParams = useSearchParams();
