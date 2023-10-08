@@ -5,6 +5,8 @@ import Link from "next/link";
 import Messages from "./messages";
 import { GithubButton } from "./github-button";
 
+export const runtime = "edge";
+
 export default async function Login() {
   const supabase = createServerComponentClient({ cookies });
 

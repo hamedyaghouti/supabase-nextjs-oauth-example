@@ -38,6 +38,8 @@ const examples = [
   { type: "Route Handlers", src: "app/_examples/route-handler.ts" },
 ];
 
+export const runtime = "edge";
+
 export default async function Index() {
   const user = await getUser();
   console.log("111111111111111 ======> ", user);
