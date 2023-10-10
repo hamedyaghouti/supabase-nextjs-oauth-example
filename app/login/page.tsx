@@ -3,12 +3,12 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import Messages from "./messages";
 import { GithubButton } from "./github-button";
-import supabase from "../lib/supabase-browser";
+// import supabase from "../lib/supabase-browser";
 
 export const runtime = "edge";
 
 export default async function Login() {
-  // const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { session },

@@ -8,18 +8,20 @@ import { getUser } from "@/app/lib/get-user";
 export const dynamic = "force-dynamic";
 export const runtime = "edge";
 
+export const revalidate = 0;
+
 export default async function Index() {
-  const session = await getUser();
-  console.log("111111111111111 ======> ", session?.user);
+  const user = await getUser();
+  console.log("111111111111111 ======> ", user);
 
   return (
     <div className="w-full flex flex-col items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm text-foreground">
           <DeployButton />
-          {session ? (
+          {user ? (
             <div className="flex items-center gap-4">
-              Hey, {session.user.email}!
+              Hey, {user.email}!
               <LogoutButton />
             </div>
           ) : (

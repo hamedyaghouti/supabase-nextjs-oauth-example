@@ -12,12 +12,12 @@ export const getUser = async () => {
   const supabase = createServerSupabaseClient();
   try {
     const {
-      data: { session },
-    } = await supabase.auth.getSession();
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    if (!session) return null;
+    if (!user) return null;
 
-    return session;
+    return user;
   } catch (error) {
     console.log(error);
     return null;
