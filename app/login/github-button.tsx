@@ -12,9 +12,9 @@ export function GithubButton({ session }: { session: Session | null }) {
   const handleGitHubLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
-      options: {
-        redirectTo: "https://8749073b.supabase-nextjs-oauth-example.pages.dev",
-      },
+      // options: {
+      //   redirectTo: "https://8749073b.supabase-nextjs-oauth-example.pages.dev",
+      // },
     });
 
     if (error) {
