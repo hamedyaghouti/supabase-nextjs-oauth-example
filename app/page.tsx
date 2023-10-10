@@ -4,6 +4,7 @@ import SupabaseLogo from "../components/SupabaseLogo";
 import NextJsLogo from "../components/NextJsLogo";
 import DeployButton from "../components/DeployButton";
 import { getUser } from "@/app/lib/get-user";
+import { supabase } from "@/app/lib/supabase";
 
 export const dynamic = "force-dynamic";
 export const runtime = "edge";
@@ -11,8 +12,10 @@ export const runtime = "edge";
 export const revalidate = 0;
 
 export default async function Index() {
-  const user = await getUser();
-  console.log("111111111111111 ======> ", user);
+  // const user = await getUser();
+  // console.log("111111111111111 ======> ", user);
+  const { data, error } = await supabase.auth.refreshSession();
+  const { session, user } = data;
 
   return (
     <div className="w-full flex flex-col items-center">
