@@ -5,9 +5,10 @@ import {
   Session,
   createClientComponentClient,
 } from "@supabase/auth-helpers-nextjs";
+import { supabase } from "@/app/lib/supabase";
 
 export function GithubButton({ session }: { session: Session | null }) {
-  const supabase = createClientComponentClient();
+  // const supabase = createClientComponentClient();
 
   const handleGitHubLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
